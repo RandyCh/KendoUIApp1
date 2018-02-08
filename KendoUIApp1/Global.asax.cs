@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Http;
+
 
 namespace KendoUIApp1
 {
@@ -16,6 +18,9 @@ namespace KendoUIApp1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //宣告api註冊 讓Joinapi controller可以在此專案裡面跑
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
         }
     }
 }
