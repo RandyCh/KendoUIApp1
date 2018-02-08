@@ -14,9 +14,9 @@ namespace KendoUIApp1.Controllers
         {
             return View();
         }
-        public ActionResult Test_Read([DataSourceRequest]DataSourceRequest )
-        {
-            return View();
-        }
+        //public ActionResult Test_Read([DataSourceRequest]DataSourceRequest )
+        //{
+        //    return View();
+        //}
     }
 }

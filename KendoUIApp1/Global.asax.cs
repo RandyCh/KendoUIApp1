@@ -14,12 +14,13 @@ namespace KendoUIApp1
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //宣告api註冊 讓Joinapi controller可以在此專案裡面跑
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+           
 
         }
     }

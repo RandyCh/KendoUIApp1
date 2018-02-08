@@ -17,5 +17,40 @@ namespace KendoUIApp1.Api
         {
             return DB.test1;
         }
+
+        [HttpPost]
+        public IEnumerable<test1> Create(string name,string dept)
+        {
+            var d1=DB.test1.Create();
+            d1.name =name;
+            d1.dept=dept;
+            DB.test1.Add(d1);
+            DB.SaveChanges();
+            Console.WriteLine("創建完成");
+            return DB.test1;
+        }
+        [HttpGet]
+        public IEnumerable<test1> Delete(string name)
+        {
+            var deleteitem=( from x in DB.test1
+                            where x.name==name
+                            select x).Single();
+            DB.test1.Remove(deleteitem);
+            DB.SaveChanges();
+            Console.WriteLine("刪除完成");
+            return DB.test1;
+        }
+        [HttpGet]
+        public IEnumerable<test1> Edit(string name)
+        {
+            var result = (from x in DB.test1
+                          where x.name==name
+                          select x).Single();
+                        result.name = "Update01";
+                        result.dept = "Update02";
+                        DB.SaveChanges();
+                        Console.WriteLine("更新完成");
+            return DB.test1;
+        }
     }
 }
