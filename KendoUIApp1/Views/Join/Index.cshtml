@@ -11,37 +11,47 @@
         $(document).ready(function () {
             $("#grid").kendoGrid({
                 dataSource: {
-                    type: "odata",
+                    type: "webapi",
                     transport: {
-                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+                        read:
+                        {
+                            url: "/api/JoinApi/Test_GetAll"
+                        }
                     },
-                    pageSize: 20
+                    schema:
+                    {
+                        data: "Data",
+                        total: "Total",
+                        model:
+                        {
+                            id: "Id",
+                            fields:
+                            {
+                                Id: { type: "number" },
+                                name: { type: "string" },
+                                dept: { type: "string" }
+                            }
+                        }
+                    }
+                    , pageSize: 20
+                   
                 },
-                height: 550,
-                groupable: true,
+                //height: 550,
+                //groupable: true,
                 sortable: true,
                 pageable: {
                     refresh: true,
                     pageSizes: true,
-                    buttonCount: 5
                 },
                 columns: [{
-                    template: "<div class='customer-photo'" +
-                    "style='background-image: url(../content/web/Customers/#:data.CustomerID#.jpg);'></div>" +
-                    "<div class='customer-name'>#: ContactName #</div>",
-                    field: "ContactName",
-                    title: "Contact Name",
-                    width: 240
-                }, {
-                    field: "ContactTitle",
-                    title: "Contact Title"
-                }, {
-                    field: "CompanyName",
-                    title: "Company Name"
-                }, {
-                    field: "Country",
-                    width: 150
-                }]
+                    field: "name",
+                    title: "名子"
+                },
+                {
+                    field: "dept",
+                    title: "部門"
+                }],
+                toolbar: [{ name: "create", text: "新增一筆資料" }]
             });
         });
     </script>

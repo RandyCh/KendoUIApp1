@@ -1,4 +1,6 @@
-﻿using KendoUIApp1.Models;
+﻿using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
+using KendoUIApp1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +53,11 @@ namespace KendoUIApp1.Api
                         DB.SaveChanges();
                         Console.WriteLine("更新完成");
             return DB.test1;
+        }
+        //把資料塞到Datasourceresult 才可以將data給kendo ,為了轉換kendo格式
+        [HttpGet]
+        public DataSourceResult Test_GetAll([System.Web.Http.ModelBinding.ModelBinder(typeof(WebApiDataSourceRequestModelBinder))]DataSourceRequest request) {
+            return DB.test1.ToDataSourceResult(request);
         }
     }
 }

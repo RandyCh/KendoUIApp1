@@ -69,6 +69,24 @@ p .k-button {
             background-position: -80px -32px;
         }
 
+/*.theme-dropdown .dropdown-menu {
+    position: static;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+    margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+    width: auto;
+}*/
+
+
+
+
+
 @media (max-width: 768px) {
     .k-item {
         display: block;

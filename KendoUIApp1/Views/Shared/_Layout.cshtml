@@ -3,40 +3,62 @@
 <head>
     <title>@ViewBag.Title - My Telerik MVC Application</title>
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap theme -->
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    
-	<link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.common-material.min.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.material.min.css")" rel="stylesheet" type="text/css" />
-	<script src="@Url.Content("~/Scripts/kendo/2017.3.913/jquery.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2017.3.913/angular.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2017.3.913/jszip.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2017.3.913/kendo.all.min.js")"></script>
+    <link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.common-material.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.3.913/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2017.3.913/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.3.913/angular.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.3.913/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.3.913/kendo.all.min.js")"></script>
 </head>
-<body>
+<body> 
     <div class="container-fluid">
-        <div class="row k-header">
-            <h1>Project Title</h1>
-            <div id="responsive-panel">
-                <ul id="menu">
-                    <li>Item 1
-                    </li>
-                    <li>Item 2
-                    </li>
-                    <li>Item 3
-                    </li>
-                    <li>Item 4
-                    </li>
-                    <li>Item 5
-                    </li>
-                    <li disabled="disabled">Disabled Item
-                    </li>
-                </ul>
+            <div class="row k-header">
+                <h1>Project Title</h1>
+                <div id="responsive-panel">
+                    <ul id="menu">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">主控台</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">資料列表</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">線別主檔</a></li>
+                                <li><a href="#">車輛主檔</a></li>
+                                <li><a href="#">SR司機主檔</a></li>
+                                <li><a href="#">客編主檔</a></li>
+                                <li><a href="#">外包車主檔</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">新增任務</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">調度總表</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">任務列表</a></li>
+                                <li><a href="#">車輛載運列表</a></li>
+                                <li><a href="#">運能統計</a></li>
+                                <li><a href="#">溫度監控</a></li>
+                                <li><a href="#">勤務異常</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">系統管理</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">帳號設定</a></li>
+                                <li><a href="#">系統日誌</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <button id="configure" class="k-rpanel-toggle k-button k-primary btn-toggle"><span class="k-icon k-i-hbars"></span></button>
             </div>
-            <button id="configure" class="k-rpanel-toggle k-button k-primary btn-toggle"><span class="k-icon k-i-hbars"></span></button>
         </div>
-    </div>
-
+  
     @RenderBody()
 
 
@@ -68,5 +90,6 @@
             $("#responsive-panel").getKendoResponsivePanel().toggle();
         }
     </script>
+
 </body>
 </html>
