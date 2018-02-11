@@ -5,54 +5,63 @@
 
 <h2>Index</h2>
 
-<div id="example">
-    <div id="grid"></div>
-    <script>
-        $(document).ready(function () {
-            $("#grid").kendoGrid({
-                dataSource: {
-                    type: "webapi",
-                    transport: {
-                        read:
-                        {
-                            url: "/api/JoinApi/Test_GetAll"
-                        }
-                    },
-                    schema:
-                    {
-                        data: "Data",
-                        total: "Total",
-                        model:
-                        {
-                            id: "Id",
-                            fields:
+<div id="example" class="container">
+    <div class="row">
+        <div id="grid"></div>
+        <script>
+            $(document).ready(function () {
+                var sharedDataSource = new kendo.data.DataSource({
+                        type: "webapi",
+                        transport: { read: { url: "/api/JoinApi/Test_GetAll" } },
+                        schema: {
+                            data: "Data",
+                            total: "Total",
+                            model:
                             {
-                                Id: { type: "number" },
-                                name: { type: "string" },
-                                dept: { type: "string" }
+                                id: "Id",
+                                fields:
+                                {
+                                    Id: { type: "number" },
+                                    name: { type: "string" },
+                                    dept: { type: "string" }
+                                }
                             }
                         }
-                    }
-                    , pageSize: 20
-                   
-                },
-                //height: 550,
-                //groupable: true,
-                sortable: true,
-                pageable: {
-                    refresh: true,
-                    pageSizes: true,
-                },
-                columns: [{
-                    field: "name",
-                    title: "名子"
-                },
-                {
-                    field: "dept",
-                    title: "部門"
-                }],
-                toolbar: [{ name: "create", text: "新增一筆資料" }]
+                });
+
+                ////===================================================================
+                $("#grid").kendoGrid({
+                    //dataSource: {
+                    //    type: "webapi",
+                    //    transport: {read: { url: "/api/JoinApi/Test_GetAll" } },
+                    //    schema: {
+                    //        data: "Data",
+                    //        total: "Total",
+                    //        model:
+                    //        {
+                    //            id: "Id",
+                    //            fields:
+                    //            {
+                    //                Id: { type: "number" },
+                    //                name: { type: "string" },
+                    //                dept: { type: "string" }
+                    //            }
+                    //        }
+                    //    }, pageSize: 20
+                    //},
+                    //height: 550,
+                    //groupable: true,
+                    dataSource: sharedDataSource,
+                    sortable: true,
+                    pageable: {refresh: true, pageSizes: true, },
+                    columns: [
+                        { field: "name", title: "名子" },
+                        { field: "dept", title: "部門" },
+                        { command: ["edit", "destroy"], title: "&nbsp;", width: "200px" }
+                    ],
+                    toolbar: [{ name: "create", text: "新增一筆資料" }]
+                });
             });
-        });
-    </script>
+        </script>
+    </div>
 </div>

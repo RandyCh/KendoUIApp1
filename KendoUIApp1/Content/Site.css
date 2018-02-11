@@ -82,12 +82,6 @@ p .k-button {
 .theme-showcase .navbar .container {
     width: auto;
 }
-#menu {
-position:absolute;
-z-index:5555;
-}
-
-
 
 @media (max-width: 768px) {
     .navbar-right form {
