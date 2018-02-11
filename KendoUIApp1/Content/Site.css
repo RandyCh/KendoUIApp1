@@ -69,7 +69,7 @@ p .k-button {
             background-position: -80px -32px;
         }
 
-/*.theme-dropdown .dropdown-menu {
+.theme-dropdown .dropdown-menu {
     position: static;
     display: block;
     margin-bottom: 20px;
@@ -81,8 +81,29 @@ p .k-button {
 
 .theme-showcase .navbar .container {
     width: auto;
-}*/
+}
+#menu {
+position:absolute;
+z-index:5555;
+}
 
+
+
+@media (max-width: 768px) {
+    .navbar-right form {
+        display: none;
+    }
+}
+
+@media (max-width: 568px) {
+    .jumbotron {
+        text-align: center;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
 
 
 
